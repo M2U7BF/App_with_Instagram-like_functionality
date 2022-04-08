@@ -1,0 +1,15 @@
+<!--修正(https://style.potepan.com/articles/20409.html#action82218221)-->
+<form action="" method="POST">
+    {% csrf_token %}
+    <div class="field">
+        {{ form.text }}
+    </div>
+    <div class="field" hidden>
+        {{ form.subject.label_tag }}
+        {{ form.subject }}
+    </div>
+    <input type="submit" value="投稿" />
+    <!--<input type="text" name="コメントの本文">-->
+    <!--<input type="submit" value="投稿" />-->
+    <!--<button type="submit" class="">コメント投稿</button>-->
+</form>

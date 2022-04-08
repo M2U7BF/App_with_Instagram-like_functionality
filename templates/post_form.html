@@ -1,0 +1,8 @@
+<!DOCTYPE html>
+<form method="POST">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <!--submit だと送信ボタンになる (https://developer.mozilla.org/ja/docs/Web/HTML/Element/input/submit)-->
+    <input type="submit" value="投稿する">
+</form>
+<a href="{% url 'home' %}">戻る</a>

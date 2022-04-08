@@ -1,0 +1,140 @@
+
+/* detail.html */
+.comment_elem {
+    flex-flow: column;
+}
+
+img.post_elem {
+    width: 50%;
+    height: auto;
+}
+
+div#detail_info {
+    margin: 0% 3% 0% 3%;
+    width: 300px;
+    overflow-wrap: break-word;
+}
+
+span.comment_text_words {
+    display: inline-block;
+    width: 200px;
+    overflow-wrap: break-word;
+}
+
+.home_account_left_side {
+  float: left;
+}
+#home_account_right_side {
+  float: right;
+  padding-right: 30%;
+}
+
+#home_accont_info {
+  width: 100%;
+  height: 30vw;
+}
+
+/* home.html */
+/* 投稿画面のトリミングが望ましいが。とりあえずここでトリミング (https://www.webcreatorbox.com/tech/object-fit) */
+img.posted_images {
+    width: 30vw;
+    height: 30vw;
+    object-fit: cover; /* この一行を追加するだけ！ */
+
+    margin: 1%;
+}
+
+.round_img {
+  border-radius: 50%;  /* 角丸の半径を50%に*/
+}
+
+#navbar_block{
+  width: 100%;
+  height: 100px;
+}
+/* ナビゲーションバーのcss(https://pakupakumukku.com/2020/02/02/post-1026/) */
+#navbar{
+  width: 100%;
+  height: 100px;
+  border-bottom: 1px solid ;
+  position: fixed;
+  background:black;
+  margin-top: -8px;
+}
+#navbar ul li{
+  float: left;
+  width: 25%;
+  height: 20px;
+}
+ul{
+  list-style-type: none;
+}
+
+
+img#myaccount_img_popup {
+  width:5vw;
+  height: 5vw;
+  border-radius: 50%;  /* 角丸の半径を50%に*/
+}
+
+div.operation_item {
+    font-size: 20px;
+}
+div.operation_item a {
+    color:inherit;
+    text-decoration: none;
+}
+
+#myaccount_label{
+  position: fixed;
+}
+
+#popup{
+  width:200px;
+  line-height:100px;
+  background:rgb(50, 50, 50);
+  padding:0 4%;
+  box-sizing:border-box;
+  display:none;
+  position:absolute;
+  -webkit-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+  margin-top: 130px;
+}
+img{
+  width:100%;
+}
+label{
+  display:inline;
+}
+label span{
+  display:block;
+  width:200px;
+  line-height:40px;
+  border-radius:4px;
+  text-align:center;
+}
+label span:hover{
+  cursor:pointer;
+}
+input[type="checkbox"]{
+  display:none;
+}
+
+input[type="checkbox"]:checked + #popup{
+  display:inline;
+  transition:.2s;
+}
+
+
+#home_account_icon {
+  width: 25vw;
+  height: 25vw;
+  border-radius: 50%;  /* 角丸の半径を50%に*/
+}
+
+.comment_account_icon {
+  width: 2em;
+  height: 2em;
+  border-radius: 50%;  /* 角丸の半径を50%に*/
+}

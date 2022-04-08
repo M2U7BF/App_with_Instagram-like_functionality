@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+{% load static %}
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="{% static 'style.css' %}">
+    <title>{{ user.get_username }}・{{ post.posted_at | date:'m/d'}}の投稿</title>
+</head>
+<body>
+    <!--コメントと連結したスクロール画面にする-->
+    <div>
+        <img class="post_elem" src="/media/{{ post.upload_img }}" alt="画像を表示できません">
+    </div>
+    <div class="post_elem" id="detail_info">
+        <!--ログインアイコン-->
+        <p></p>
+        <!--ログイン名-->
+        <p>{{ user.get_username }}</p><!--https://qiita.com/aksuzuki/items/6a1212734e2d2027736a-->
+        <!--テキスト-->
+        <p>{{ post.text }}</p>
+        <!--投稿日時-->
+        <p>{{ post.posted_at }}</p>
+    </div>
+    <div class="comment_elem">
+        {% include "comment_form.html" %}
+    </div>
+    <div class="comment_elem">
+        {% for comment in comment_list %}
+            {% if comment.subject.pk == post.id %} <!--そのPostについたコメントのみ表示-->
+                <div class="comment_box">
+                    <!--list内のイテレータに対して〜を指定し参照-->
+                    <!--参考(https://office54.net/python/django/template-for-loop)-->
+                    <!--日付の表示の修正。(https://yu-nix.com/blog/2021/9/10/django-datetimefield/#DateTimeField%E3%81%AE%E6%A7%8B%E9%80%A0)-->
+                    <p class="text"><span><img class="comment_account_icon"" src="/static/images/image_in_account05.png" alt="画像が表示できません"/></span><span>{{ comment.posted_at | date:'m/d H:i:s'}} : </span><span class="comment_text_words">{{ comment.text }}</span></p>
+                    <!--文の省略(https://metrograph.jp/css_gradation_paragraph/)-->
+                </div>
+            {% else %}
+            {% endif %}
+        {% endfor %}
+    </div>
+</body>
+
+
+

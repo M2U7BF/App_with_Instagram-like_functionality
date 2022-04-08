@@ -1,0 +1,28 @@
+<!-- 参考(https://techacademy.jp/magazine/32150) -->
+<!DOCTYPE html>
+{% load static %}
+<head>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" href="{% static 'style.css' %}">
+</head>
+<label id="myaccount_label">
+  <img id="myaccount_img_popup" src="../static/images/image_in_account05.png" alt="画像が表示できません" />
+  <input type="checkbox" name="checkbox">
+  <div id="popup">
+    <div class="operation_item">
+      <span>プロフィール</span>
+    </div>
+    <div class="operation_item">
+      <span>保存済み</span>
+    </div>
+    <div class="operation_item">
+      <span>設定</span>
+    </div>
+    <div class="operation_item">
+      <span>
+        <a href="{% url 'logout' %}">
+          ログアウト</a>
+      </span>
+    </div>
+  </div>
+</label>

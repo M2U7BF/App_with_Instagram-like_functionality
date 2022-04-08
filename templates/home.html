@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+{% load static %}
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="{% static 'style.css' %}">
+    <title>{{ user.get_username }}・写真</title>
+</head>
+<body>
+    <div id="navbar_block">
+        <div id="navbar">
+            <ul>
+                <li>
+                    <p>サイトロゴ</p>
+                </li>
+                <li></li>
+                <li>
+                    <a href="{% url 'new-post' %}">
+                        <img class="round_img" src="/static/images/pluce_icon.jpeg" alt="画像を表示できません" style="width: 5vw;height: 5vw;">
+                    </a>
+                </li>
+                <li>
+                    <!-- 自分のアカウントアイコンの表示 -->
+                    {% include 'home-account_operation.html' %}
+                </li>
+            </ul>
+        </div>
+    </div>
+    <header>
+        <div id="home_accont_info">
+            <div>
+                <!--投稿ユーザーアイコンの表示-->
+                <img id="home_account_icon" class="home_account_left_side" src="../static/images/image_in_account05.png" alt="画像が表示できません"/>
+            </div>
+            <div id="home_account_right_side">
+                <!--ログイン名の表示-->
+                <h1>{{ user.get_username }}</h1>
+                
+                投稿数
+                フォロワー数
+                フォロー数
+                
+            </div>
+        </div>
+        <div>
+            <p>
+                <!-- 自己紹介欄 -->
+            </p>
+        </div>
+    </header>
+    <div class="post_block">
+        {% for post in object_list %}
+        <a href="{% url 'detail' post.id %}" class="posted_images_link"> <!--画像をリンクとして表示(https://www.sejuku.net/blog/85388)-->
+            <img src="/media/{{ post.upload_img }}" alt="画像を表示できません" class="posted_images">
+        </a>
+        {% endfor %}
+    </div>
+    
+</body>
