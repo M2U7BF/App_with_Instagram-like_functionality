@@ -1,4 +1,10 @@
-<!DOCTYPE html>
+{% extends '_media_bace.html' %}
+
+{% block title %}
+<title>{{ get_username }}・新規投稿</title>
+{% endblock %}
+
+{% block main %}
 <form method="POST">
     {% csrf_token %}
     {{ form.as_p }}
@@ -6,3 +12,4 @@
     <input type="submit" value="投稿する">
 </form>
 <a href="{% url 'home' %}">戻る</a>
+{% endblock %}

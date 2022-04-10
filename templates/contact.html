@@ -1,0 +1,21 @@
+{% extends '_media_bace.html' %}
+
+{% block title %}
+<title>お問い合わせ</title>
+{% endblock %}
+
+{% block main %}
+
+<!-- メッセージを運営に送る -->
+<!-- 運営元のメアド登録 -->
+<!-- 送信者のアカウント情報を開示。もしくは非公開で投稿 -->
+<!DOCTYPE html>
+<form action="mailt:XXXXXXXXXXX@gmail.com" enctype="text/plain" method="POST">
+    {% csrf_token %}
+    {{ form.username }}
+    {{ form.as_p }}
+    <input type="submit" value="問い合わせ">
+</form>
+<a href="{% url 'home' %}">戻る</a>
+
+{% endblock %}

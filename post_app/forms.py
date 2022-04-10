@@ -38,3 +38,11 @@ class LoginForm(auth_forms.AuthenticationForm):
         super().__init__(*args,**kw)
         for field in self.fields.values():
             field.widget.attrs['placeolder'] = field.label
+
+class ContactForm(forms.Form):
+    pass
+    # ログインユーザーの名前を設定
+
+    # テキスト入力
+    text = forms.CharField()
+

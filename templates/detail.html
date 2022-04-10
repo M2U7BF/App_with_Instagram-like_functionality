@@ -1,10 +1,10 @@
-<!DOCTYPE html>
-{% load static %}
-<head>
-    <meta charset="UTF-8">
-    <link rel="stylesheet" href="{% static 'style.css' %}">
-    <title>{{ user.get_username }}・{{ post.posted_at | date:'m/d'}}の投稿</title>
-</head>
+{% extends '_media_bace.html' %}
+
+{% block title %}
+<title>{{ user.get_username }}・{{ post.posted_at | date:'m/d'}}の投稿</title>
+{% endblock %}
+
+{% block main %}
 <body>
     <!--コメントと連結したスクロール画面にする-->
     <div>
@@ -19,6 +19,8 @@
         <p>{{ post.text }}</p>
         <!--投稿日時-->
         <p>{{ post.posted_at }}</p>
+        <!-- いいね -->
+        <p>{% include "like.html" %}</p>
     </div>
     <div class="comment_elem">
         {% include "comment_form.html" %}
@@ -38,6 +40,7 @@
         {% endfor %}
     </div>
 </body>
+{% endblock %}
 
 
 

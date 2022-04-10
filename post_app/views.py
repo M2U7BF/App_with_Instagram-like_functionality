@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from django.views.generic import ListView, CreateView, DetailView, TemplateView
+from django.views.generic import ListView, CreateView, DetailView, FormView
 from .models import *
 from .forms import *
 from django.urls import reverse_lazy,reverse
@@ -121,3 +121,20 @@ class UserCreateView(CreateView):
     form_class = UserCreationForm
     template_name = "accounts-create.html"
     success_url = reverse_lazy("login")
+
+
+def ApiGoodView(request,pk):
+    try:
+        obj = Post.objects.get(pk=pk) # pkを元にPostテーブルの対象記事レコードを取得する
+    except Post.DoesNotExist:
+        raise Http404
+    obj.good += 1  # ここでいいねの数を増やす
+    obj.save()  # 保存をする
+    
+
+    return JsonResponse({"good":obj.good}) # いいねの数をJavaScriptに渡す
+
+class ContactView(FormView):
+    template_name = 'contact.html'
+    form_class = ContactForm
+    success_url = 'thanks'

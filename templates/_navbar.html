@@ -1,0 +1,43 @@
+<div id="navbar_block" class="bar_block">
+    <div id="navbar">
+        <ul>
+            <li>
+                <p>サイトロゴ</p>
+            </li>
+            <li></li>
+            <li style="width: 30vw;height: 5vw;text-align: center; background-color: rgb(104, 104, 104);">
+                検索
+            </li>
+            <li></li>
+            <li>
+                <a href="{% url 'home' %}">
+                    <!-- ホームボタン(自分の投稿ページに飛ぶ) -->
+                    <img class="round_img" src="/static/images/home_img.png" alt="画像を表示できません" style="width: 5vw;height: 5vw;">
+                </a>
+            </li>
+            <li>
+                <!-- ダイレクトメッセージ -->
+                <img class="round_img" src="/static/images/direct_img.jpeg" alt="画像を表示できません" style="width: 5vw;height: 5vw;">
+            </li>
+            <li>
+                <a href="{% url 'new-post' %}">
+                    <img class="round_img" src="/static/images/pluce_icon.jpeg" alt="画像を表示できません" style="width: 5vw;height: 5vw;">
+                </a>
+            </li>
+            <li>
+                <!--  「アカウント」「タグ」「スポット」などの検索 -->
+                <img class="round_img" src="/static/images/compass_img.jpeg" alt="画像を表示できません" style="width: 5vw;height: 5vw;">
+            </li>
+            <li>
+                <!-- いいねアイコン -->
+                <!-- いいねされた投稿を確認 -->
+                <img class="round_img" src="/static/images/heart.png" alt="画像を表示できません" style="width: 5vw;height: 5vw;">
+            </li>
+            <li>
+                <!-- 自分のアカウントアイコンの表示 -->
+                {% include 'home-account_operation.html' %}
+            </li>
+            </span>
+        </ul>
+    </div>
+</div>

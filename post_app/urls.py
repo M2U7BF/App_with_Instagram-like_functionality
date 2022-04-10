@@ -8,5 +8,8 @@ urlpatterns = [
     path('new-post/', views.FormClass.as_view(), name="new-post"),
     path('accounts/login/', views.MyLoginView.as_view(), name="login"),
     path('accounts/logout/', views.MyLogoutView.as_view(), name="logout"),
-    path('accounts/create/', views.UserCreateView.as_view(),name="create"), 
+    path('accounts/create/', views.UserCreateView.as_view(),name="create"),
+    path('good/<pk>/', views.ApiGoodView, name='api_good'), 
+    path('contact/', views.ContactView.as_view(), name="contact"),
+    # path('', ~ , name='thanks')
 ]
